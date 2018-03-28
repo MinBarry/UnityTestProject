@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Class for objects that cause damage when they collide and get destroyed.
 public class ImpactObjectScript : MonoBehaviour {
 
-	// Use this for initialization
+    protected float DamageAmount = 1;
+
+    public float getDamageAmount(){return DamageAmount; }
+
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
+
+    protected virtual void OnTriggerEnter2D()
+    {
+        //print("collision with impact obj");
+        Destroy(gameObject);
+    }
 }

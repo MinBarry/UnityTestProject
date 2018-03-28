@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ManagerScript : MonoBehaviour {
 
-    public static ManagerScript Instance { get; private set; }
-    public int Edges=4;
+    public static ManagerScript Instance { get; private set; }  //presistant instane
+    public int Edges=4;         // to Limit the player movement on both sides
 
     private void Awake()
     {
@@ -20,12 +20,10 @@ public class ManagerScript : MonoBehaviour {
         }
     }
 
-    // Use this for initialization
     void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
