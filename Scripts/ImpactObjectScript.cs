@@ -22,4 +22,9 @@ public class ImpactObjectScript : MonoBehaviour {
         //print("collision with impact obj");
         Destroy(gameObject);
     }
+
+    private void OnDestroy()
+    {
+        //play animation
+    }
 }

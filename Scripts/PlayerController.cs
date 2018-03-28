@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script to control the player's movement, and updates health
+// Should be attached to a player type prefab.
 public class PlayerController : MonoBehaviour {
 
-    public float speed = 1;
-    //Shot type refrence
-    public GameObject Shot;
+    public float verticalSpeed = 1;
+    public float Health = 10;   
+    public GameObject Shot;     //Shot type refrence
+
     private bool shoot = false;
 	
 	void Start () {
@@ -14,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
+        // Create shots
         if (shoot)
         {
             Instantiate(Shot);
@@ -25,9 +29,10 @@ public class PlayerController : MonoBehaviour {
 
     private void OnMouseDrag()
     {
+        //Dragging player with the mouse
         Vector2 mousepoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (mousepoint.x <= ManagerScript.Instance.Edges && mousepoint.x >= -ManagerScript.Instance.Edges)
-            transform.position = new Vector3(mousepoint.x * speed, transform.position.y, transform.position.z);
+        if (mousepoint.x <= ManagerScript.Instance.Edges && mousepoint.x >= -ManagerScript.Instance.Edges) //Check edges to limit player position
+            transform.position = new Vector3(mousepoint.x * verticalSpeed, transform.position.y, transform.position.z);
         shoot = true;
     }
 
@@ -35,5 +40,6 @@ public class PlayerController : MonoBehaviour {
     {
         Debug.Log("Player trigger");
         Debug.Log(collision);
+        //Update player health
     }
 }

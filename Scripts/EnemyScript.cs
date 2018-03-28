@@ -6,6 +6,7 @@ public class EnemyScript: ImpactObjectScript {
 
     public float Health = 1;
     public float ImpactDamage = 1;
+    public float Score = 1;
 	
 	void Start () {
         DamageAmount = ImpactDamage;
@@ -14,6 +15,7 @@ public class EnemyScript: ImpactObjectScript {
 	void Update () {
         if(Health <= 0)
         {
+            (GetComponentInParent(typeof(EnvManager)) as EnvManager).AddScore(Score);
             Destroy(gameObject);
         }
 		
@@ -29,7 +31,7 @@ public class EnemyScript: ImpactObjectScript {
         if (shot)
         {
             Health = Health - shot.getDamageAmount();
-            Debug.Log(Health);
+            //Debug.Log(Health);
         }
         else if (other.gameObject.GetComponent("PlayerController"))
         {
@@ -39,6 +41,7 @@ public class EnemyScript: ImpactObjectScript {
     private void OnDestroy()
     {
         Debug.Log("Enemy Destroyed");
+       
     }
 
 }

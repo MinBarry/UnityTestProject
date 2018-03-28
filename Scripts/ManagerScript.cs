@@ -5,7 +5,8 @@ using UnityEngine;
 public class ManagerScript : MonoBehaviour {
 
     public static ManagerScript Instance { get; private set; }  //presistant instane
-    public int Edges=4;         // to Limit the player movement on both sides
+    public float Edges=4f;         // to Limit the player movement on both sides
+    public bool Pause = false;
 
     private void Awake()
     {

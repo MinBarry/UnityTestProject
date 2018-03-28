@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Class that represents the player's shots
 public class PlayerShotsScript : ImpactObjectScript{
 
     public float ShotDamage = 1;
